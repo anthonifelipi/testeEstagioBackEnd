@@ -3,9 +3,15 @@ import userRouter from "./routes/users.router";
 import { PrismaClient } from "@prisma/client";
 import loginRouter from "./routes/login.router";
 import tasksRouter from "./routes/tasks.router";
+import cors from "cors";
 
 export const app = express();
-const port = process.env.PORT || 3000;
+app.use(
+  cors({
+    origin: "*",
+    allowedHeaders: ["Authorization", "Content-Type"],
+  })
+);
 
 export const prisma = new PrismaClient();
 app.use(express.json());

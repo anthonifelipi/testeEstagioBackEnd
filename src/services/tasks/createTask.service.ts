@@ -9,7 +9,7 @@ const createTaskService = async (data: ITaskRequest, userId: string) => {
   if (!user) {
     throw new AppError("user not found", 400);
   }
-
+  
   const createTask = await prisma.tasks.create({
     data: {
       title: data.title,

@@ -5,11 +5,13 @@ import { compare } from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const loginService = async ({ email, password }: IUserLogin) => {
+
   const user = await prisma.user.findUnique({
     where: {
       email: email,
     },
   });
+
 
   if (!user) {
     throw new AppError("Wrong credentials", 403);
@@ -32,7 +34,15 @@ const loginService = async ({ email, password }: IUserLogin) => {
     String(process.env.JWT_SECRET),
     { expiresIn: "12h" }
   );
-  return token;
+
+  const userReturn = {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    cpf: user.cpf,
+  };
+
+  return { token, userReturn };
 };
 
 export default loginService;

@@ -16,6 +16,14 @@ const createuserService = async (
     throw new AppError("Email already exists", 400);
   }
 
+  const cpfAlreaduExists = await prisma.user.findUnique({
+    where: { cpf: data.cpf },
+  });
+
+  if (cpfAlreaduExists) {
+    throw new AppError("CPF already exists", 400);
+  }
+
   const hashedPassword = await bcrypt.hash(data.password, 10);
   console.log("cheguei aqui");
   const user = await prisma.user.create({
