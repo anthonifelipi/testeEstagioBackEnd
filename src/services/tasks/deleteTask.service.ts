@@ -18,6 +18,7 @@ const deleteTaskService = async (userId: string, taskId: string) => {
         id: task.id,
       },
     });
+
     return deleteTask;
   } else {
     throw new AppError("You don't have permission to delete this task", 403);

@@ -3,7 +3,6 @@ import { AppError } from "../../errors/appErrors";
 import { ITaskResponse } from "../../interfaces/tasks";
 
 const updateTaskService = async (data: ITaskResponse, taskId: string) => {
-  console.log(taskId);
   const task = await prisma.tasks.findUnique({
     where: {
       id: taskId,
