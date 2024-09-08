@@ -41,6 +41,16 @@ Neste Projeto usamos as seguintes tecnologias:
 
 **Clone o projeto deste repositório**
 
+**Crie um arquivo chamado `.env`(no mesmo nivel do arquivo de exemplo `.env.example`). Abaixo vou deixar uma foto de como deve ficar a estrutura do projeto para indicar onde o arquivo `.env` deve ser criado. IMPORTANTE CRIAR O ARQUIVO ANTES DE RODAS OS COMANDOS**
+
+<p align="center">
+  <img 
+    alt="Imagem de login" 
+    src="https://i.imgur.com/KD70Bbl.png"
+    width="10%"
+  >
+</p>
+
 ```bash
 # Faça um clone do repositorio onde preferir
 $ git clone git@github.com:anthonifelipi/testeEstagioBackEnd.git
@@ -56,6 +66,7 @@ $ cd testeEstagioBackEnd
 ```bash
 # Instale as dependencias.
 $ yarn install
+
 
 # Aqui estamos aplicando as migrações e também e também criando nosso arquivo dev.db.
 $ npx prisma migrate dev --name init
