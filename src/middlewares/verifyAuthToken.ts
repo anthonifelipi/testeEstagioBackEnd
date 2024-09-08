@@ -5,7 +5,6 @@ import "dotenv/config";
 const verifyAuthToken = (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers.authorization;
 
-  console.log(req.headers, "VERIFYTOKEN");
   if (!token) {
     return res.status(401).json({
       message: "Invalid token",

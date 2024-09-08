@@ -3,11 +3,9 @@ import createTaskService from "../../services/tasks/createTask.service";
 
 const createTaskController = async (req: Request, res: Response) => {
   try {
-    console.log(req.body);
     if (!req.user) {
       return res.status(400).json({ message: "User not authenticated." });
     }
-    console.log(req.user);
     const userId: any = req.user.id;
     const data = req.body;
 
